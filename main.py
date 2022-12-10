@@ -39,12 +39,26 @@ if __name__ == '__main__':
     url = 'https://pokeapi.co/api/v2/pokemon-form/'
     get_pokemons()
 
+
+def pegar_tipo(poke):
+    print(BRIGHT+GREEN+'TIPO', pokemon+RESET_ALL)
+    for i in poke['types']:
+        print(i['type']['name'])
+
+def pegar_habilidades(poke):
+    print(BRIGHT+BLUE+'HABILIDADES DE', pokemon+RESET_ALL)
+    for i in poke['abilities']:
+        print(i['ability']['name'])
+
+
 def main ():
     global pokemon
     pokemon = str(input(BRIGHT+'\nIngrese Pokemon : '+RESET_ALL))
     api = f'https://pokeapi.co/api/v2/pokemon/{pokemon}'
     res = requests.get(api)
     poke=res.json()
+    pegar_tipo(poke)
+    pegar_habilidades(poke)
 
 if __name__ == '__main__':
     main()
