@@ -38,3 +38,13 @@ def get_pokemons(url='https://pokeapi.co/api/v2/pokemon-form/', offset=0):
 if __name__ == '__main__':
     url = 'https://pokeapi.co/api/v2/pokemon-form/'
     get_pokemons()
+
+def main ():
+    global pokemon
+    pokemon = str(input(BRIGHT+'\nIngrese Pokemon : '+RESET_ALL))
+    api = f'https://pokeapi.co/api/v2/pokemon/{pokemon}'
+    res = requests.get(api)
+    poke=res.json()
+
+if __name__ == '__main__':
+    main()
